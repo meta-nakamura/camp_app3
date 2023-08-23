@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "camp-app3"
+client_id = "e4056defe3fb8cc0d5943cfb6f51bca3"
+application_url = "https://printers-finds-workstation-obtained.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://printers-finds-workstation-obtained.trycloudflare.com/auth/callback",
+  "https://printers-finds-workstation-obtained.trycloudflare.com/auth/shopify/callback",
+  "https://printers-finds-workstation-obtained.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-07"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "dev-nakamura-camp.myshopify.com"
