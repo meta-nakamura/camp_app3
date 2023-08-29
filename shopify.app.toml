@@ -2,7 +2,7 @@
 
 name = "camp-app3"
 client_id = "e4056defe3fb8cc0d5943cfb6f51bca3"
-application_url = "https://printers-finds-workstation-obtained.trycloudflare.com"
+application_url = "https://grown-ec-event-prepaid.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://printers-finds-workstation-obtained.trycloudflare.com/auth/callback",
-  "https://printers-finds-workstation-obtained.trycloudflare.com/auth/shopify/callback",
-  "https://printers-finds-workstation-obtained.trycloudflare.com/api/auth/callback"
+  "https://grown-ec-event-prepaid.trycloudflare.com/auth/callback",
+  "https://grown-ec-event-prepaid.trycloudflare.com/auth/shopify/callback",
+  "https://grown-ec-event-prepaid.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
