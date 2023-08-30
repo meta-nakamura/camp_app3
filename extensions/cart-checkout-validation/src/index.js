@@ -17,9 +17,8 @@ export default /**
     const max = Number.parseInt(merchandise?.product?.max_orders?.value);
 
     if (max && quantity > max) {
-      console.log("error!!!");
       errors.push({
-        localizedMessage: `Can't order more than ${merchandise?.product?.max_orders?.value} of ${merchandise?.product.handle}`,
+        localizedMessage: `${merchandise?.product.handle} は ${merchandise?.product?.max_orders?.value} 点以上注文できません`,
         target: "cart"
       });
     }
