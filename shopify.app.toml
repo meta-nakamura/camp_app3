@@ -2,7 +2,7 @@
 
 name = "camp-app3"
 client_id = "e4056defe3fb8cc0d5943cfb6f51bca3"
-application_url = "https://grown-ec-event-prepaid.trycloudflare.com"
+application_url = "https://camp-app3.onrender.com"
 embedded = true
 
 [access_scopes]
@@ -11,9 +11,8 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://grown-ec-event-prepaid.trycloudflare.com/auth/callback",
-  "https://grown-ec-event-prepaid.trycloudflare.com/auth/shopify/callback",
-  "https://grown-ec-event-prepaid.trycloudflare.com/api/auth/callback"
+  "https://camp-app3.onrender.com/auth",
+  "https://camp-app3.onrender.com/auth/callback"
 ]
 
 [webhooks]
