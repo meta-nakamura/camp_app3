@@ -117,20 +117,26 @@ export default function Index() {
 
   // App proxyで外部ページからjsonを読み込む
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const fetchData = async () => {
-    try {
-      const response = await fetch('/apps/dev-app-proxy/app_path');
-      if (!response.ok) {
-        const text = await response.text(); // レスポンスの内容をテキストとして取得
-        throw new Error(`Network response was not ok. Status: ${response.status}. Text: ${text}`);
+      setLoading(true);
+      setError(null);
+      try {
+          const response = await fetch('https://dev-nakamura-camp.myshopify.com/apps/dev-app-proxy/app_path/');
+          if (!response.ok) {
+              throw new Error(`Network response was not ok. Status: ${response.status}. Text: ${await response.text()}`);
+          }
+          const json = await response.json();
+          setData(json);
+      } catch (err) {
+          setError(err.message);
+      } finally {
+          setLoading(false);
       }
-      const json = await response.json();
-      setData(json);
-    } catch (error) {
-      console.error('error!!!');
-    }
   };
+
 
   // const handleSubmit = () => {
   //   console.log("FormData to be submitted:", meta);
@@ -235,14 +241,12 @@ export default function Index() {
                 <Layout.Section>
                   <List type="number">
                     <List.Item>
-                    <div>
-                      <button onClick={fetchData}>外部データ取得</button>
-                      {data && (
-                        <div>
-                          <pre>{JSON.stringify(data, null, 2)}</pre>
-                        </div>
-                      )}
-                    </div>
+                      <div>
+                          <button onClick={fetchData}>Fetch Data</button>
+                          {loading && <p>Loading...</p>}
+                          {error && <p>Error: {error}</p>}
+                          {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+                      </div>
                     </List.Item>
                   </List>
                 </Layout.Section>
