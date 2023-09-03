@@ -115,35 +115,6 @@ export default function Index() {
   // const [result, setResult] = useState('');
   // const [accessing, setAccessing] = useState(false);
 
-  // App proxyで外部ページからjsonを読み込む
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const fetchData = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-          const response = await fetch('https://dev-nakamura-camp.myshopify.com/apps/dev-app-proxy/app_path/', {
-              headers: {
-                  'Content-Type': 'application/json',
-                  'Accept': 'application/json',
-                  'Access-Control-Allow-Origin': '*',
-              }
-          });
-          if (!response.ok) {
-              throw new Error(`Network response was not ok. Status: ${response.status}. Text: ${await response.text()}`);
-          }
-          const json = await response.json();
-          setData(json);
-      } catch (err) {
-          console.log('error!!!');
-      } finally {
-          setLoading(false);
-      }
-  };
-
-
   // const handleSubmit = () => {
   //   console.log("FormData to be submitted:", meta);
   //   submit(meta, { replace: true, method: "POST" });
@@ -247,12 +218,7 @@ export default function Index() {
                 <Layout.Section>
                   <List type="number">
                     <List.Item>
-                      <div>
-                          <button onClick={fetchData}>Fetch Data</button>
-                          {loading && <p>Loading...</p>}
-                          {error && <p>Error: {error}</p>}
-                          {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
-                      </div>
+                      <Button url={`https://${_getAdminFromShop(shop)}/apps/dev-app-proxy/app_path/`}>プロキシURLにアクセス</Button>
                     </List.Item>
                   </List>
                 </Layout.Section>
