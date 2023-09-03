@@ -224,7 +224,7 @@ export default function Index() {
                       ・プロキシURL：https://dev-app-proxy.onrender.com/app_proxy
                     </List.Item>
                     <List.Item>
-                      <Button url={`https://${_getAdminFromShop(shop)}/apps/dev-app-proxy/app_path/`} target="_blank">プロキシURLにアクセス</Button>
+                      <Button url={`https://${shop}.myshopify.com/apps/dev-app-proxy/app_path/`} target="_blank">プロキシURLにアクセス</Button>
                     </List.Item>
                   </List>
                 </Layout.Section>
