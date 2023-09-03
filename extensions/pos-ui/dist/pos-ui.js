@@ -17734,8 +17734,8 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
       Tile2,
       {
-        title: "My app",
-        subtitle: "SmartGrid Extension",
+        title: "My Custom app",
+        subtitle: "SmartGrid Extension!!",
         onPress: () => {
           api.smartGrid.presentModal();
         },
