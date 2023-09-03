@@ -1174,7 +1174,7 @@
             }
             return dispatcher.useContext(Context, unstable_observedBits);
           }
-          function useState(initialState) {
+          function useState2(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1186,7 +1186,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect(create, deps) {
+          function useEffect2(create, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create, deps);
           }
@@ -1758,13 +1758,13 @@
           exports.useCallback = useCallback2;
           exports.useContext = useContext3;
           exports.useDebugValue = useDebugValue;
-          exports.useEffect = useEffect;
+          exports.useEffect = useEffect2;
           exports.useImperativeHandle = useImperativeHandle;
           exports.useLayoutEffect = useLayoutEffect;
           exports.useMemo = useMemo2;
           exports.useReducer = useReducer;
           exports.useRef = useRef2;
-          exports.useState = useState;
+          exports.useState = useState2;
           exports.version = ReactVersion;
         })();
       }
@@ -17431,6 +17431,9 @@ For more info, visit https://reactjs.org/link/mock-scheduler`);
     }
   });
 
+  // extensions/checkout-ui/src/Checkout.jsx
+  var import_react10 = __toESM(require_react());
+
   // node_modules/@shopify/ui-extensions/node_modules/@remote-ui/core/build/esm/component.mjs
   function createRemoteComponent(componentType) {
     return componentType;
@@ -18419,7 +18422,25 @@ ${errorInfo.componentStack}`);
   );
   function Extension() {
     const translate = useTranslate();
-    const { extension: extension2 } = useApi();
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Banner2, { title: "checkout-ui", children: translate("welcome", { target: extension2.target }) });
+    const { extension: extension2, lines } = useApi();
+    const [totalQuantity, setTotalQuantity] = (0, import_react10.useState)(0);
+    (0, import_react10.useEffect)(() => {
+      const unsubscribe = lines.subscribe((actualLines) => {
+        const newTotal = actualLines.reduce((acc, line) => acc + line.quantity, 0);
+        setTotalQuantity(newTotal);
+      });
+      return () => {
+        unsubscribe();
+      };
+    }, [lines]);
+    let message = "";
+    if (totalQuantity >= 5) {
+      message = "5\u70B9\u4EE5\u4E0A\u306E\u8CFC\u5165\u8005\u69D8\uFF1A10%\u30AA\u30D5\u306E\u30AF\u30FC\u30DD\u30F3\u3092\u30D7\u30EC\u30BC\u30F3\u30C8\u3057\u307E\u3059\uFF01";
+    } else if (totalQuantity >= 3) {
+      message = "3\u70B9\u4EE5\u4E0A\u306E\u8CFC\u5165\u8005\u69D8\uFF1A\u9001\u6599\u7121\u6599\u3067\u3059\uFF085\u70B9\u4EE5\u4E0A\u3067\u3055\u3089\u306B\u7279\u5178\u304C\u8FFD\u52A0\u3055\u308C\u307E\u3059\uFF01\uFF09";
+    } else {
+      message = "3\u70B9\u8CFC\u5165\u3067\u9001\u6599\u7121\u6599\u306E\u7279\u5178\u304C\u3042\u308A\u307E\u3059\u3002\u3082\u30461\u70B9\u8FFD\u52A0\u3057\u3066\u307F\u307E\u305B\u3093\u304B\uFF1F";
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Banner2, { title: "\u8CFC\u5165\u7279\u5178", children: message });
   }
 })();
