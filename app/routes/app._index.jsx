@@ -124,14 +124,20 @@ export default function Index() {
       setLoading(true);
       setError(null);
       try {
-          const response = await fetch('https://dev-nakamura-camp.myshopify.com/apps/dev-app-proxy/app_path/');
+          const response = await fetch('https://dev-nakamura-camp.myshopify.com/apps/dev-app-proxy/app_path/', {
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json',
+                  'Access-Control-Allow-Origin': '*',
+              }
+          });
           if (!response.ok) {
               throw new Error(`Network response was not ok. Status: ${response.status}. Text: ${await response.text()}`);
           }
           const json = await response.json();
           setData(json);
       } catch (err) {
-          setError(err.message);
+          console.log('error!!!');
       } finally {
           setLoading(false);
       }
