@@ -18,15 +18,15 @@
     "setup": "prisma generate && prisma migrate deploy"
   },
   "dependencies": {
-    "@prisma/client": "^4.13.0",
+    "@prisma/client": "^4.16.2",
     "@remix-run/node": "^1.19.1",
     "@remix-run/react": "^1.19.1",
     "@remix-run/serve": "^1.19.1",
     "@shopify/app": "3.48.3",
     "@shopify/app-bridge": "^3.7.9",
     "@shopify/app-bridge-react": "^3.7.9",
-    "@shopify/app-bridge-utils": "^3.5.1",
     "@shopify/app-bridge-types": "^0.0.3",
+    "@shopify/app-bridge-utils": "^3.5.1",
     "@shopify/cli": "3.48.3",
     "@shopify/polaris": "^11.1.2",
     "@shopify/shopify-app-remix": "^1.1.0",
