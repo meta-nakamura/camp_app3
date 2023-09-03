@@ -218,7 +218,13 @@ export default function Index() {
                 <Layout.Section>
                   <List type="number">
                     <List.Item>
-                      <Button url={`https://${_getAdminFromShop(shop)}/apps/dev-app-proxy/app_path/`}>プロキシURLにアクセス</Button>
+                      アプリプロキシの設定は以下となっています。<br />
+                      ・サブパスのプリフィックス：apps<br />
+                      ・サブパス：dev-app-proxy<br />
+                      ・プロキシURL：https://dev-app-proxy.onrender.com/app_proxy
+                    </List.Item>
+                    <List.Item>
+                      <Button url={`https://${_getAdminFromShop(shop)}/apps/dev-app-proxy/app_path/`} target="_blank">プロキシURLにアクセス</Button>
                     </List.Item>
                   </List>
                 </Layout.Section>
