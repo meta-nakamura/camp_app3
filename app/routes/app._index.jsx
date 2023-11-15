@@ -232,6 +232,28 @@ export default function Index() {
             </Card>
           </Layout.Section>
         </Layout>
+        <Layout>
+          <Layout.Section>
+            <Text variant="heading2xl" as="h3">Theme App Extensions</Text>
+            <Card>
+              <Layout>
+                <Layout.Section>
+                  <List type="number">
+                    <List.Item>
+                      ・アプリブロック（Star Rating）<br />
+                      （コマンドで作成されるデフォルトブロック）<br />
+                    </List.Item>
+                    <List.Item>
+                      ・アプリ埋め込みブロック（Coupon Info）<br />
+                      （ページ右下にクーポンバナーを表示するブロック）<br />
+                      を使用することができます。
+                    </List.Item>
+                  </List>
+                </Layout.Section>
+              </Layout>
+            </Card>
+          </Layout.Section>
+        </Layout>
       </VerticalStack>
     </Page>
   );
